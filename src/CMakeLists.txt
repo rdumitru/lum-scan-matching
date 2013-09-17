@@ -4,10 +4,10 @@
 #-------------------------------------------------------------------------------
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-find_package(OpenGL REQUIRED)
-find_package(GLU REQUIRED)
-find_package(GLUT REQUIRED)
-find_package(GLEW REQUIRED)
+find_package(PCL 1.7 REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
 
 #-------------------------------------------------------------------------------
 # Source files.
@@ -17,7 +17,7 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 #-------------------------------------------------------------------------------
 # Executables.
 #-------------------------------------------------------------------------------
-set(CORE_LIBS ${OpenGL_LIBRARY} ${GLUT_LIBRARY} ${GLU_LIBRARY} ${GLEW_LIBRARY})
+set(CORE_LIBS ${PCL_COMMON_LIBRARIES} ${PCL_IO_LIBRARIES})
 set(USER_LIBS testLib)
 
 add_executable(run ${SOURCES})
