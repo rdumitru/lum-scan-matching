@@ -1,23 +1,27 @@
 //==============================================================================
 // Includes.
 //==============================================================================
-// User includes.
-#include <reader/PclReader.h>
-
 // C++ includes.
+#include <string>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 using namespace std;
 
-
+// C includes.
+#include <stdlib.h>
 
 //==============================================================================
-// Main.
+// Functions.
 //==============================================================================
-int main(int argc, char* argv[]) {
-    PclReader reader;
-    reader.read("/media/Mobile/Scans/lum", 0, 3);
-    reader.run();
-
-    cout << "Program end..." << endl;
+static inline string int2String(const int &toConvert, const int &nrDigits)
+{
+    stringstream ss;
+    ss << setfill('0') << setw(nrDigits) << toConvert;
+    return ss.str();
 }
 
+static inline void die(const string &msg) {
+    cerr << msg << endl;
+    exit(EXIT_FAILURE);
+}

@@ -17,8 +17,8 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 #-------------------------------------------------------------------------------
 # Executables.
 #-------------------------------------------------------------------------------
-set(CORE_LIBS ${PCL_COMMON_LIBRARIES} ${PCL_IO_LIBRARIES})
-set(USER_LIBS testLib)
+set(CORE_LIBS ${PCL_LIBRARIES})
+set(USER_LIBS reader)
 
 add_executable(run ${SOURCES})
 target_link_libraries(run ${USER_LIBS} ${CORE_LIBS})
@@ -26,5 +26,5 @@ target_link_libraries(run ${USER_LIBS} ${CORE_LIBS})
 #-------------------------------------------------------------------------------
 # Directories.
 #-------------------------------------------------------------------------------
-add_subdirectory(testLib)
+add_subdirectory(reader)
 ################################################################################

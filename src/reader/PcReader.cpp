@@ -1,23 +1,28 @@
 //==============================================================================
 // Includes.
 //==============================================================================
+#include <reader/PcReader.h>
+
 // User includes.
-#include <reader/PclReader.h>
+#include <common.h>
 
 // C++ includes.
-#include <iostream>
+#include <string>
 using namespace std;
 
-
+// C includes.
+#include <assert.h>
 
 //==============================================================================
-// Main.
+// Class implementation.
 //==============================================================================
-int main(int argc, char* argv[]) {
-    PclReader reader;
-    reader.read("/media/Mobile/Scans/lum", 0, 3);
-    reader.run();
 
-    cout << "Program end..." << endl;
-}
+// Constructors.
+PcReader::PcReader()
+{}
 
+PcReader::PcReader(const PcReader &other)
+{}
+
+PcReader::~PcReader()
+{}

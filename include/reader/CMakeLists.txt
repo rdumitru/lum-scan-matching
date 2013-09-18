@@ -3,5 +3,5 @@
 # Headers.
 #-------------------------------------------------------------------------------
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.h")
-add_custom_target(headersTest SOURCES ${HEADERS})
+add_custom_target(headersReader SOURCES ${HEADERS})
 ################################################################################
