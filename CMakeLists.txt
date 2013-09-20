@@ -34,4 +34,5 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -std=c++11 -O2")
 #-------------------------------------------------------------------------------
 add_subdirectory(src)
 add_subdirectory(include)
+add_subdirectory(3rdparty/3dtk-1.2)
 ################################################################################

@@ -1,0 +1,51 @@
+PROJECT_NAME     = TORO
+INPUT            = 	../posegraph2.hh  \
+			../posegraph2.hh  \
+			../posegraph.hh  \	
+			../transformation2.hh \
+			../transformation3.hh \
+			../treeoptimizer2.hh \
+			../treeoptimizer3.hh \
+			../posegraph.hxx \
+			../posegraph2.cpp \
+			../posegraph3.cpp \
+			../treeoptimizer2.cpp \
+			../treeoptimizer3.cpp \
+			../treeoptimizer3_iteration.cpp \
+			main.txt 
+
+IMAGE_PATH     = ./
+
+STRIP_FROM_PATH    	= ../
+WARNINGS         	= NO
+PERL_PATH        	= /usr/bin/perl
+SEARCHENGINE     	= NO
+OPTIMIZE_OUTPUT_FOR_C 	= NO
+GENERATE_TREEVIEW 	= YES
+TREEVIEW_WIDTH 		= 280
+SOURCE_BROWSER    	= YES
+GENERATE_LATEX 		= NO
+
+ALPHABETICAL_INDEX 	= NO
+DISABLE_INDEX      	= YES
+
+ALWAYS_DETAILED_SEC	= NO
+REPEAT_BRIEF		= YES
+
+DETAILS_AT_TOP          = YES
+EXTRACT_ALL             = NO
+EXTRACT_LOCAL_CLASSES   = YES
+SHOW_INCLUDE_FILES      = NO
+SUBGROUPING            	= NO
+
+REFERENCED_BY_RELATION = NO
+REFERENCES_RELATION    = NO
+TOC_EXPAND             = YES
+
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+UML_LOOK               = NO
+
+TEMPLATE_RELATIONS     = YES
