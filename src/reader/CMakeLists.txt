@@ -12,5 +12,7 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 #-------------------------------------------------------------------------------
 # Libraries.
 #-------------------------------------------------------------------------------
+include_directories(${CMAKE_SOURCE_DIR}/3rdparty/3dtk-1.2/include)
 add_library(${MODULE} ${SOURCES})
+target_link_libraries(${MODULE} slam)
 ################################################################################
