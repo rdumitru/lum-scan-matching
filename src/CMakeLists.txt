@@ -20,8 +20,8 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 set(CORE_LIBS ${PCL_LIBRARIES})
 set(USER_LIBS reader)
 
-add_executable(run ${SOURCES})
-target_link_libraries(run ${USER_LIBS} ${CORE_LIBS})
+add_executable(lumPcl ${SOURCES})
+target_link_libraries(lumPcl ${USER_LIBS} ${CORE_LIBS})
 
 #-------------------------------------------------------------------------------
 # Directories.

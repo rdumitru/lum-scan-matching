@@ -88,6 +88,8 @@ void PclReader::read(const string &path,
             die("Failed to open file \"" + poseFilePath + "\"...");
         }
 
+        pcFile.close();
+
         // Read in the pose.
         Pose pose;
         poseFile >> pose.x >> pose.y >> pose.z;
@@ -96,6 +98,8 @@ void PclReader::read(const string &path,
         // Add the point cloud and pose to the list.
         this->m_PointClouds.push_back(p_Pc);
         this->m_Poses.push_back(pose);
+
+        poseFile.close();
 
         cout << "Loaded point cloud with " << p_Pc->points.size() << " points..."
              << endl << endl;
@@ -152,9 +156,38 @@ void PclReader::run()
 
     lum.compute();
 
+    // Copy the new poses.
+    this->m_Poses.clear();
     for (int it = 0; it < this->m_PointClouds.size(); ++it)
     {
-        cout << lum.getPose(it)
-             << endl << endl;
+        Eigen::Vector6f eigenPose = lum.getPose(it);
+
+        Pose currPose;
+        currPose.x = eigenPose(0);
+        currPose.y = eigenPose(1);
+        currPose.z = eigenPose(2);
+        currPose.roll = eigenPose(3);
+        currPose.pitch = eigenPose(4);
+        currPose.yaw = eigenPose(5);
+        this->m_Poses.push_back(currPose);
     }
+
+    // Save point cloud pointer.
+    this->m_PcResult = lum.getConcatenatedCloud();
+}
+
+void PclReader::printPc(const string &filePath) {
+    cout << "Printing complete point cloud to " << filePath << "..." << endl;
+
+    // Open stream to file.
+    ofstream file(filePath.c_str());
+
+    for (pcl::PointCloud<pcl::PointXYZ>::iterator it = this->m_PcResult->begin();
+         it != this->m_PcResult->end(); ++ it)
+    {
+        pcl::PointXYZ pt = *it;
+        file << pt.x << " " << pt.y << " " << pt.z << endl;
+    }
+
+    file.close();
 }

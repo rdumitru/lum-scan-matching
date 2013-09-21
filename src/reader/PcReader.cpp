@@ -26,3 +26,8 @@ PcReader::PcReader(const PcReader &other)
 
 PcReader::~PcReader()
 {}
+
+vector<Pose> PcReader::getPoses()
+{
+    return this->m_Poses;
+}

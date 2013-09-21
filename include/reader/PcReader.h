@@ -1,3 +1,7 @@
+#ifndef _PC_READER_H
+#define _PC_READER_H
+
+
 //==============================================================================
 // Includes.
 //==============================================================================
@@ -37,4 +41,9 @@ public:
               const std::string &root = "scan", const std::string &ext = ".3d", const std::string &poseExt = ".pose") = 0;
 
     virtual void run() = 0;
+
+    // Getters and setters.
+    std::vector<Pose> getPoses();
 };
+
+#endif // _PC_READER_H
