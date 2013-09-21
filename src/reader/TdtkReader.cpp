@@ -3,6 +3,13 @@
 //==============================================================================
 #include <reader/TdtkReader.h>
 
+#define MAX_OPENMP_NUM_THREADS  8
+#define OPENMP_NUM_THREADS      8
+
+#include "slam6d/icp6Dlumeuler.h"
+#include "slam6d/icp6Dlumquat.h"
+#include "slam6d/icp6Dminimizer.h"
+
 //==============================================================================
 // Class implementation.
 //==============================================================================
@@ -23,4 +30,9 @@ void TdtkReader::read(const std::string &path,
 {}
 
 void TdtkReader::run()
-{}
+{
+    icp6Dminimizer *icp6Dminimizer = new icp6D_LUMEULER(true);
+
+
+
+}
