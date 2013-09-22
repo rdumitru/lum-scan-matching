@@ -19,10 +19,14 @@ using namespace std;
 
 // Constructors.
 PcReader::PcReader()
-{}
+{
+    this->m_Poses.clear();
+}
 
 PcReader::PcReader(const PcReader &other)
-{}
+{
+    this->m_Poses = other.m_Poses;
+}
 
 PcReader::~PcReader()
 {}

@@ -9,4 +9,5 @@ add_custom_target(headersInclude SOURCES ${HEADERS})
 # Directories.
 #-------------------------------------------------------------------------------
 add_subdirectory(reader)
+add_subdirectory(timer)
 ################################################################################

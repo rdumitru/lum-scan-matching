@@ -18,7 +18,7 @@ add_definitions(${PCL_DEFINITIONS})
 # Executables.
 #-------------------------------------------------------------------------------
 set(CORE_LIBS ${PCL_LIBRARIES})
-set(USER_LIBS reader)
+set(USER_LIBS reader timer)
 
 #add_executable(lumPcl ${SOURCES})
 add_executable(lumPcl lumPcl)
@@ -27,8 +27,12 @@ target_link_libraries(lumPcl ${USER_LIBS} ${CORE_LIBS})
 add_executable(lumTdtk lumTdtk)
 target_link_libraries(lumTdtk ${USER_LIBS} ${CORE_LIBS})
 
+add_executable(pcTranslate pcTranslate)
+target_link_libraries(pcTranslate ${USER_LIBS} ${CORE_LIBS})
+
 #-------------------------------------------------------------------------------
 # Directories.
 #-------------------------------------------------------------------------------
 add_subdirectory(reader)
+add_subdirectory(timer)
 ################################################################################

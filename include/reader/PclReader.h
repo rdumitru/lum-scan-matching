@@ -14,18 +14,35 @@
 #include <pcl/point_types.h>
 
 //==============================================================================
+// Helpers.
+//==============================================================================
+enum CorrespMethod {
+    ICP,
+    CORRESP_EST
+};
+
+//==============================================================================
 // Class declaration.
 //==============================================================================
 class PclReader : public PcReader
 {
 private:
     // Private fields.
+    CorrespMethod m_CorrespMethod;
     std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr> m_PointClouds;
     pcl::PointCloud<pcl::PointXYZ>::Ptr m_PcResult;
 
+    // Constants.
+    static const int LUM_ITER = 50;
+    static const float LUM_CONV_THRESH = 0.0;
+    static const int ICP_ITER = 3;
+    static const float ICP_MAX_CORRESP_DIST = 0.05;
+    static const float ICP_TRANS_EPS = 1e-8;
+    static const float ICP_EUCLIDEAN_FITNESS_EPS = 1;
+
 public:
     // Constructors.
-    PclReader();
+    PclReader(const CorrespMethod &correspMethod);
 
     PclReader(const PclReader &other);
 
