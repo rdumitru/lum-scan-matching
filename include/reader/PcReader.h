@@ -8,6 +8,9 @@
 // C++ includes.
 #include <string>
 #include <vector>
+#include <ostream>
+
+#include "common.h"
 
 //==============================================================================
 // Helpers.
@@ -15,7 +18,22 @@
 struct Pose {
     double x, y, z;
     double roll, pitch, yaw;
+
+    Pose(){}
+    Pose(double translation[3], double rotationEulerAngles[3]) :
+        x(translation[0]), y(translation[1]), z(translation[2]),
+        roll(rotationEulerAngles[0]), pitch(rotationEulerAngles[1]),
+        yaw(rotationEulerAngles[2]) {}
+
+    friend std::ostream& operator<<(std::ostream& o, const Pose& pose);
 };
+
+inline std::ostream& operator<<(std::ostream& o, const Pose& p){
+    o << "T: " << p.x << " " << p.y << " " << p.z
+      << " roll: " << rad2Deg(p.roll) << " pitch: " << rad2Deg(p.pitch)
+      << " yaw: " << rad2Deg(p.yaw) << "\n";
+    return o;
+}
 
 //==============================================================================
 // Class declaration.

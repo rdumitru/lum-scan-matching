@@ -1078,7 +1078,7 @@ bool Scan::toType(const char* string, reader_type &type) {
  *        scan matching results
  */
 void Scan::readScans(reader_type type,
-		     int start, int end, string &_dir, int maxDist, int minDist, 
+             int start, int end, const string &_dir, int maxDist, int minDist,
 		     bool openFileForWriting)
 {
   outputFrames = openFileForWriting;
@@ -1107,7 +1107,7 @@ void Scan::toGlobal(double voxelSize, int nrpts) {
 }
 
 void Scan::readScansRedSearch(reader_type type,
-		     int start, int end, string &_dir, int maxDist, int minDist, 
+             int start, int end, const string &_dir, int maxDist, int minDist,
 						double voxelSize, int nrpts, // reduction parameters
 						int nns_method, bool cuda_enabled, 
 						bool openFileForWriting)

@@ -1,6 +1,6 @@
-cmake_minimum_required (VERSION 2.6.1)
 SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/CMakeModules" ${CMAKE_MODULE_PATH})
-project (Slam6D)
+
+ADD_DEFINITIONS( "-w" ) # disable warnings from 3rd party code
 
 
 #include_directories(OPENGL_INCLUDE_DIR)
@@ -246,7 +246,7 @@ ENDIF(APPLE)
 # OPEN
 FIND_PACKAGE(OpenMP)
 IF(OPENMP_FOUND)
-  OPTION(WITH_OPENMP "Whether to use parallel processing capabilities of OPENMP. ON/OFF" ON)
+  OPTION(WITH_OPENMP "Whether to use parallel processing capabilities of OPENMP. ON/OFF" OFF)
 ENDIF(OPENMP_FOUND)
 
 IF(OPENMP_FOUND AND WITH_OPENMP)
@@ -343,8 +343,8 @@ ENDIF(APPLE)
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ADDITIONAL_CFLAGS}")
 
 # Hide CMake variables
-SET (CMAKE_INSTALL_PREFIX "/usr/local" CACHE INTERNAL "" FORCE)
-SET (CMAKE_BUILD_TYPE "" CACHE INTERNAL "" FORCE)
+#SET (CMAKE_INSTALL_PREFIX "/usr/local" CACHE INTERNAL "" FORCE)
+#SET (CMAKE_BUILD_TYPE "" CACHE INTERNAL "" FORCE)
 
 
 # Set output directories for libraries and executables

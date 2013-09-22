@@ -141,10 +141,10 @@ public:
   static bool toType(const char* string, reader_type &type);
 
   static void readScans(reader_type type,
-				    int start, int end, string &dir, int maxDist, int minDist,
+                    int start, int end, const string &dir, int maxDist, int minDist,
 				    bool openFileForWriting = false);  
   static void readScansRedSearch(reader_type type,
-						   int start, int end, string &dir, int maxDist, int minDist,
+                           int start, int end, const string &dir, int maxDist, int minDist,
 						   double voxelSize, int nrpts, // reduction parameters
 						   int nns_method, bool cuda_enabled, 
 						   bool openFileForWriting = false);  
@@ -183,6 +183,7 @@ private:
 
   };
   
+public:
   /**
    * The pose of the scan
    * Note: rPos/rPosTheta and transMat _should_
@@ -193,7 +194,7 @@ private:
          rQuat[4],      ///< 3D rotation in Quaternion representation
          transMat[16];  ///< (4x4) transformation matrix
 
-  
+private:
   /**
     * run ICP on GPU instead of CPU
     */

@@ -12,7 +12,7 @@ add_definitions(${PCL_DEFINITIONS})
 #-------------------------------------------------------------------------------
 # Source files.
 #------------------------------------------------------------------------------
-file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
+#file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 
 #-------------------------------------------------------------------------------
 # Executables.
@@ -20,8 +20,12 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 set(CORE_LIBS ${PCL_LIBRARIES})
 set(USER_LIBS reader)
 
-add_executable(lumPcl ${SOURCES})
+#add_executable(lumPcl ${SOURCES})
+add_executable(lumPcl lumPcl)
 target_link_libraries(lumPcl ${USER_LIBS} ${CORE_LIBS})
+
+add_executable(lumTdtk lumTdtk)
+target_link_libraries(lumTdtk ${USER_LIBS} ${CORE_LIBS})
 
 #-------------------------------------------------------------------------------
 # Directories.

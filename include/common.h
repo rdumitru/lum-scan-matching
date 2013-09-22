@@ -1,3 +1,5 @@
+#ifndef _COMMON_H
+#define _COMMON_H
 //==============================================================================
 // Includes.
 //==============================================================================
@@ -36,3 +38,5 @@ static inline double rad2Deg(const double &val) {
     double deg = (val / M_PI) * 180.0;
     return fmod(deg, 360.0);
 }
+
+#endif
